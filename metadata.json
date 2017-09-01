@@ -1,15 +1,24 @@
 {
-  "name": "valsr-vjava",
-  "version": "0.1.0",
-  "author": "valsr",
-  "summary": "Manages Java Installation",
-  "license": "MIT",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
-  "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
-  ],
-  "data_provider": null
+	"author": "valsr <valsr@valsr.com>",
+	"license": "MIT",
+	"name": "valsr-vjava",
+	"operatingsystem_support": [],
+	"project_page": "",
+	"requirements": [],
+	"source": "UNKNOWN",
+	"summary": "Java environment installation and configuration",
+	"tags": [],
+	"version": "1.0.0",
+	"data_provider": "hiera",
+    "dependencies": [{
+			"name": "puppetlabs/stdlib",
+			"version_requirement": ">=4.3.2"
+		},{
+			"name": "puppetlabs/apt",
+			"version_requirement": ">=2.0.0"
+		},{
+		  "name":"valsr/vdata",
+		  "version_requirement":">=1.0.0"
+		}
+	]
 }
-
