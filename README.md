@@ -34,9 +34,23 @@ N/A
 
 ### Beginning with vjava
 
+Simplest case is to include the default java class. This will install the default java environment (JRE). The default
+version is controlled by the vjava::globals default_version parameter (use hiera for lookups):
+```.pp
+include vjava
+```
+
+If you need/want to install additional JRE/JDK/DOC/Debugging symbols, simply include the desired version:
+```.pp
+include vjava::9::jre
+include vjava::9::jdk
+include vjava::9::doc
+include vjava::9::dbg
+```
 
 ## Usage
 
+N/A
 
 ## Reference
 
