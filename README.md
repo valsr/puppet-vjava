@@ -35,10 +35,12 @@ N/A
 ### Beginning with vjava
 
 Simplest case is to include the default java class. This will install the default java environment (JRE). The default
-version is controlled by the vjava::globals default_version parameter (use hiera for lookups):
+version is controlled by the **vjava::globals default_version** parameter (use hiera for lookups):
 ```.pp
 include vjava
 ```
+
+## Usage
 
 If you need/want to install additional JRE/JDK/DOC/Debugging symbols, simply include the desired version:
 ```.pp
@@ -48,9 +50,15 @@ include vjava::9::doc
 include vjava::9::dbg
 ```
 
-## Usage
+Configuring the default version of java is accomplished by setting the vjava::globals default_version parameter to
+the java version. It is recommended to configure this via hiera lookup instead of hard coding it. By default a default
+java 8 is the default version.
 
-N/A
+```.pp
+class{'vjava::globals':
+    default_version => 9
+    }
+```
 
 ## Reference
 
