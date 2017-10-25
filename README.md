@@ -1,6 +1,6 @@
 # vjava
 
-#### Table of Contents
+## Table of Contents
 
 1. [Description](#description)
 1. [Setup - The basics of getting started with vjava](#setup)
@@ -11,73 +11,73 @@
 1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
+1. [Release Notes](#release-notes)
 
 ## Description
 
-Start with a one- or two-sentence summary of what the module does and/or what
-problem it solves. This is your 30-second elevator pitch for your module.
-Consider including OS/Puppet version it works with.
-
-You can give more descriptive information in a second paragraph. This paragraph
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?" If your module has a range of functionality (installation, configuration,
-management, etc.), this is the time to mention it.
+vjava module installs and configures Java environments. Is addition, it plays nice with other modules allowing
+ad-hoc (runtime) environment installation, configuration.
 
 ## Setup
 
-### What vjava affects **OPTIONAL**
+At most you will need to have vdata installed in order to use hiera data lookups.
 
-If it's obvious what your module touches, you can skip this section. For
-example, folks can probably figure out that your mysql_instance module affects
-their MySQL instances.
+### What vjava affects
 
-If there's more that they should know about, though, this is the place to mention:
+* JRE/JDK installations
+* JAVA home path/variable
+* Default Java run-time association
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
+### Setup requirements
 
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you might want to include an additional "Upgrading" section
-here.
+N/A
 
 ### Beginning with vjava
 
-The very basic steps needed for a user to get the module up and running. This
-can include setup steps, if necessary, or it can be an example of the most
-basic use of the module.
+Simplest case is to include the default java class. This will install the default java environment (JRE). The default
+version is controlled by the **vjava::globals default_version** parameter (use hiera for lookups):
+```.pp
+include vjava
+```
 
 ## Usage
 
-This section is where you describe how to customize, configure, and do the
-fancy stuff with your module here. It's especially helpful if you include usage
-examples and code samples for doing things with your module.
+If you need/want to install additional JRE/JDK/DOC/Debugging symbols, simply include the desired version:
+```.pp
+include vjava::9::jre
+include vjava::9::jdk
+include vjava::9::doc
+include vjava::9::dbg
+```
+
+Configuring the default version of java is accomplished by setting the vjava::globals default_version parameter to
+the java version. It is recommended to configure this via hiera lookup instead of hard coding it. By default a default
+java 8 is the default version.
+
+```.pp
+class{'vjava::globals':
+    default_version => 9
+    }
+```
 
 ## Reference
 
-Here, include a complete list of your module's classes, types, providers,
-facts, along with the parameters for each. Users refer to this section (thus
-the name "Reference") to find specific details; most users don't read it per
-se.
+> Generate documents first by running **puppet strings generate**
+
+See [doc/index.html](doc/index.html) for reference documentation.
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc. If there
-are Known Issues, you might want to include them under their own heading here.
+Module build against Puppet 5.
+
+Tested on:
+
+- Ubuntu 16.04 LTS
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
-## Release Notes/Contributors/Etc. **Optional**
+## Release Notes
 
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You can also add any additional sections you feel
-are necessary or important to include here. Please use the `## ` header.
+See [CHANGELOG.md](CHANGELOG.md)
