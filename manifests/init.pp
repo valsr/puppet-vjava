@@ -4,6 +4,7 @@
 #
 # @example basic usage
 #   include vbase::software::java::init
+
 # Copyright 2017 valsr
 class vjava(Boolean $default = true){
 

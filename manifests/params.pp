@@ -1,7 +1,7 @@
 # Java Software Parameters. You wouldn't use this class for configuration, instead use the globals class.
 #
 # Copyright 2017 valrs
-class vjava::params{
+class vjava::params inherits vjava::globals {
   case $::osfamily {
     'Debian': {
       $oracle_architecture = $::architecture ? {
@@ -10,7 +10,7 @@ class vjava::params{
       }
       case $::lsbdistcodename {
         'stretch','xenial', 'yakkety', 'zesty', 'sarah', 'serena', 'sonya': {
-          $default_java_version = pick($vjava::globals::default_version, 8)
+          $default_java_version = $vjava::globals::default_version
           $java = {
             8 => {
               jre => {

@@ -8,7 +8,7 @@
 	"source": "UNKNOWN",
 	"summary": "Java environment installation and configuration",
 	"tags": [],
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"data_provider": "hiera",
     "dependencies": [{
 			"name": "puppetlabs/stdlib",
