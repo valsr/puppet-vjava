@@ -8,7 +8,7 @@
 #   }
 # Copyright 2017 valsr
 class vjava::globals(
-    Variant[Integer,Undef] $default_version = 9
+    Variant[Integer,Undef] $default_version = 8
     )
 {
 }
