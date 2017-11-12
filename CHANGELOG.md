@@ -2,6 +2,13 @@
 
 [< back to readme](README.md)
 
+## 1.1.0 (2017-11-12)
+
+Reverted to Java 8 as default version
+
+**Release Manager**: valsr <valsr@valsr.com>
+
+
 ## 1.0.1 (2017-11-04)
 
 Moved default java version to globals class
