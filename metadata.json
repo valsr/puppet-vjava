@@ -1,24 +1,30 @@
 {
-	"author": "valsr <valsr@valsr.com>",
-	"license": "MIT",
-	"name": "valsr-vjava",
-	"operatingsystem_support": [],
-	"project_page": "",
-	"requirements": [],
-	"source": "UNKNOWN",
-	"summary": "Java environment installation and configuration",
-	"tags": [],
-	"version": "1.0.1",
-	"data_provider": "hiera",
-    "dependencies": [{
-			"name": "puppetlabs/stdlib",
-			"version_requirement": ">=4.3.2"
-		},{
-			"name": "puppetlabs/apt",
-			"version_requirement": ">=2.0.0"
-		},{
-		  "name":"valsr/vdata",
-		  "version_requirement":">=1.0.0"
-		}
-	]
+    "name": "valsr-vjava",
+    "version": "1.1.0",
+    "author": "valsr",
+    "summary": "Java environment installation and configuration",
+    "license": "MIT",
+    "source": "https://github.com/valsr/pr-puppet-vjava",
+    "project_page": "https://github.com/valsr/pr-puppet-vjava",
+	"issues_url": "https://github.com/valsr/pr-puppet-vjava/issues",
+    "dependencies": [
+        {"name": "puppetlabs/stdlib", "version_requirement": "4.x"},
+        {"name": "puppetlabs/apt", "version_requirement": "2.x"},
+        {"name":"valsr/vdata", "version_requirement":"1.x"}
+    ],
+    "data_provider": "hiera",
+    "operatingsystem_support": [
+        {
+            "operatingsystem": "Ubuntu",
+            "operatingsystemrelease" : ["16.04"]
+        }
+    ],
+    "requirements": [
+        {
+            "name":"puppet",
+            "version_requirement": "4.x"
+        }
+    ],
+    "description": "",
+    "tags": ["roles"],
 }
