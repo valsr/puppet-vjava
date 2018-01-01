@@ -9,7 +9,7 @@ class vjava::params inherits vjava::globals {
         default => $::architecture
       }
       case $::lsbdistcodename {
-        'stretch','xenial', 'yakkety', 'zesty', 'sarah', 'serena', 'sonya': {
+        'stretch','xenial', 'yakkety', 'zesty', 'sarah', 'serena', 'sonya', 'sylvia': {
           $default_java_version = $vjava::globals::default_version
           $java = {
             8 => {
