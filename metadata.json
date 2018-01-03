@@ -6,7 +6,7 @@
     "license": "MIT",
     "source": "https://github.com/valsr/pr-puppet-vjava",
     "project_page": "https://github.com/valsr/pr-puppet-vjava",
-	"issues_url": "https://github.com/valsr/pr-puppet-vjava/issues",
+    "issues_url": "https://github.com/valsr/pr-puppet-vjava/issues",
     "dependencies": [
         {"name": "puppetlabs/stdlib", "version_requirement": "4.x"},
         {"name": "puppetlabs/apt", "version_requirement": "2.x"},
@@ -26,5 +26,5 @@
         }
     ],
     "description": "",
-    "tags": ["roles"],
+    "tags": ["roles"]
 }
