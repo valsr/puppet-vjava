@@ -4,10 +4,6 @@
 class vjava::params inherits vjava::globals {
   case $::osfamily {
     'Debian': {
-      $oracle_architecture = $::architecture ? {
-        'amd64' => 'x64',
-        default => $::architecture
-      }
       case $::lsbdistcodename {
         'stretch','xenial', 'yakkety', 'zesty', 'sarah', 'serena', 'sonya', 'sylvia': {
           $default_java_version = $vjava::globals::default_version
