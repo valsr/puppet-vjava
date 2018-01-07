@@ -15,9 +15,9 @@ class vjava::params inherits vjava::globals {
             8 => {
               jre => {
                 package => 'openjdk-8-jre',
-                alternative => "java-1.8.0-openjdk-${::package_architecture}",
-                alternative_path=> "/usr/lib/jvm/java-1.8.0-openjdk-${::package_architecture}/bin/java",
-                java_home=> "/usr/lib/jvm/java-1.8.0-openjdk-${::package_architecture}/",
+                alternative => "java-1.8.0-openjdk-${package_architecture}",
+                alternative_path=> "/usr/lib/jvm/java-1.8.0-openjdk-${package_architecture}/bin/java",
+                java_home=> "/usr/lib/jvm/java-1.8.0-openjdk-${package_architecture}/",
               },
               jdk => {
                 package => 'openjdk-8-jdk'
@@ -32,9 +32,9 @@ class vjava::params inherits vjava::globals {
             9 =>{
               jre => {
                 package => 'openjdk-9-jre',
-                alternative => "java-1.9.0-openjdk-${::package_architecture}",
-                alternative_path=> "/usr/lib/jvm/java-1.9.0-openjdk-${::package_architecture}/bin/java",
-                java_home => "/usr/lib/jvm/java-1.9.0-openjdk-${::package_architecture}/",
+                alternative => "java-1.9.0-openjdk-${package_architecture}",
+                alternative_path=> "/usr/lib/jvm/java-1.9.0-openjdk-${package_architecture}/bin/java",
+                java_home => "/usr/lib/jvm/java-1.9.0-openjdk-${package_architecture}/",
               },
               jdk => {
                 package => 'openjdk-9-jdk',
