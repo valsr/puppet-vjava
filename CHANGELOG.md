@@ -2,9 +2,15 @@
 
 [< back to readme](README.md)
 
+## 1.1.3 (2018-01-07)
+
+Fixed update-alternatives package names
+
+**Release Manager**: valsr <valsr@valsr.com>
+
 ## 1.1.2 (2018-01-04)
 
-Fixed issue with improperly formated metadata.json
+Fixed issue with improperly formatted metadata.json
 
 **Release Manager**: valsr <valsr@valsr.com>
 

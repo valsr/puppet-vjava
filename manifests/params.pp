@@ -2,12 +2,12 @@
 #
 # Copyright 2017 valrs
 class vjava::params inherits vjava::globals {
+  $package_architecture = $::architecture ? {
+      'x86_64' => 'amd64',
+      default => $::architecture
+  }
   case $::osfamily {
     'Debian': {
-      $oracle_architecture = $::architecture ? {
-        'amd64' => 'x64',
-        default => $::architecture
-      }
       case $::lsbdistcodename {
         'stretch','xenial', 'yakkety', 'zesty', 'sarah', 'serena', 'sonya', 'sylvia': {
           $default_java_version = $vjava::globals::default_version
@@ -15,9 +15,9 @@ class vjava::params inherits vjava::globals {
             8 => {
               jre => {
                 package => 'openjdk-8-jre',
-                alternative => "java-1.8.0-openjdk-${::architecture}",
-                alternative_path=> "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/bin/java",
-                java_home=> "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/",
+                alternative => "java-1.8.0-openjdk-${::package_architecture}",
+                alternative_path=> "/usr/lib/jvm/java-1.8.0-openjdk-${::package_architecture}/bin/java",
+                java_home=> "/usr/lib/jvm/java-1.8.0-openjdk-${::package_architecture}/",
               },
               jdk => {
                 package => 'openjdk-8-jdk'
@@ -32,9 +32,9 @@ class vjava::params inherits vjava::globals {
             9 =>{
               jre => {
                 package => 'openjdk-9-jre',
-                alternative => "java-1.9.0-openjdk-${::architecture}",
-                alternative_path=> "/usr/lib/jvm/java-1.9.0-openjdk-${::architecture}/bin/java",
-                java_home => "/usr/lib/jvm/java-1.9.0-openjdk-${::architecture}/",
+                alternative => "java-1.9.0-openjdk-${::package_architecture}",
+                alternative_path=> "/usr/lib/jvm/java-1.9.0-openjdk-${::package_architecture}/bin/java",
+                java_home => "/usr/lib/jvm/java-1.9.0-openjdk-${::package_architecture}/",
               },
               jdk => {
                 package => 'openjdk-9-jdk',
