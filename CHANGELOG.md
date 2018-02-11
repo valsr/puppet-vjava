@@ -2,6 +2,12 @@
 
 [< back to readme](README.md)
 
+## 1.2.0 (2018-02-11)
+
+Added Java facts
+
+**Release Manager**: valsr <valsr@valsr.com>
+
 ## 1.1.3 (2018-01-07)
 
 Fixed update-alternatives package names

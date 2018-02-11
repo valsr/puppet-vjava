@@ -60,6 +60,25 @@ class{'vjava::globals':
     }
 ```
 
+### Facts
+
+Module includes several facts regarding java installation. These are all under the java fact and show the default java
+version as well as known installed java versions. The fact is a hash with each installed version being represented as a
+hash. The 'default' key only holds the current default java version (from calling `java -version`).
+
+**Example**:
+```puppet
+java{
+  default => '8',
+ '8' => {
+   home => '/usr/lib/jvm/java-8-openjdk-amd64',
+   type => 'amd64',
+   default => true
+ }
+'9' => ...
+}
+```
+
 ## Reference
 
 > Generate documents first by running **puppet strings generate**
