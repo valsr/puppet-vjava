@@ -2,6 +2,12 @@
 
 [< back to readme](README.md)
 
+## 1.2.1 (2018-02-19)
+
+Don't fail fact generation when no java is installed
+
+**Release Manager**: valsr <valsr@valsr.com>
+
 ## 1.2.0 (2018-02-11)
 
 Added Java facts

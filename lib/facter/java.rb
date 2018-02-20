@@ -28,12 +28,13 @@ Facter.add(:java) do
     # default java
     j_default = nil
     begin
-      output = Facter::Util::Resolution.exec("java -version 2>&1").split("\n")[0]
+      cmd = Facter::Util::Resolution.exec("java -version 2>&1")
+      output = cmd ? cmd.split("\n")[0] : ""
       /openjdk version "(\d\.(?<release>\d)\.\d_(\d+)|(?<release>\d)-internal|(?<release>\d)\.(\d)\.(\d))"/.match(output) do |m|
         j_default = m[:release]
       end
     rescue Facter::Core::Execution::ExecutionFailure
-      warning("Failed executing 'java -version'. Java may not be installed")
+      warn("Failed executing 'java -version'. Java may not be installed")
       j_default = nil
     end
     java[:default] = j_default
@@ -42,7 +43,7 @@ Facter.add(:java) do
     begin
       javas = Facter::Util::Resolution.exec("update-alternatives --list java").split
     rescue
-      warning("Failed executing 'update-alternatives --list java'")
+      warn("Failed executing 'update-alternatives --list java'")
     end
 
     javas.each do | version |
@@ -61,7 +62,7 @@ Facter.add(:java) do
           java[j_release] = {:home => j_home, :type => j_type, :default => j_release == j_default}
         end
       rescue Facter::Core::Execution::ExecutionFailure
-        warning("Failed executing '#{version} -version'")
+        warn("Failed executing '#{version} -version'")
       end
     end
 
