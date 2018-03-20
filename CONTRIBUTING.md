@@ -13,12 +13,12 @@ WIKI: N/A
 ## Development Requirements
 
 To develop (edit/compile/etc) you will need:
-- IDE that supports puppet editing (or a text editor)
-- Puppet testing machines or docker
-- python 3.4+ (deployment scripts)
-	- python paramiko module
-- git 2.0 or newer
-- sci 17.07 or newer
+
+* IDE that supports puppet editing (or a text editor)
+* Puppet testing machines or docker
+* python 3.4+ (deployment scripts) - python paramiko module
+* git 2.0 or newer
+* sci 17.07 or newer
 
 ## Code Style
 
