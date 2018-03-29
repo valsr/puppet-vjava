@@ -2,16 +2,16 @@
 
 ## Table of Contents
 
-1. [Description](#description)
-1. [Setup - The basics of getting started with vjava](#setup)
+1.  [Description](#description)
+1.  [Setup - The basics of getting started with vjava](#setup)
     * [What vjava affects](#what-vjava-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with vjava](#beginning-with-vjava)
-1. [Usage - Configuration options and additional functionality](#usage)
-1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-1. [Limitations - OS compatibility, etc.](#limitations)
-1. [Development - Guide for contributing to the module](#development)
-1. [Release Notes](#release-notes)
+1.  [Usage - Configuration options and additional functionality](#usage)
+1.  [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+1.  [Limitations - OS compatibility, etc.](#limitations)
+1.  [Development - Guide for contributing to the module](#development)
+1.  [Release Notes](#release-notes)
 
 ## Description
 
@@ -36,6 +36,7 @@ N/A
 
 Simplest case is to include the default java class. This will install the default java environment (JRE). The default
 version is controlled by the **vjava::globals default_version** parameter (use hiera for lookups):
+
 ```.pp
 include vjava
 ```
@@ -43,6 +44,7 @@ include vjava
 ## Usage
 
 If you need/want to install additional JRE/JDK/DOC/Debugging symbols, simply include the desired version:
+
 ```.pp
 include vjava::9::jre
 include vjava::9::jdk
@@ -67,6 +69,7 @@ version as well as known installed java versions. The fact is a hash with each i
 hash. The 'default' key only holds the current default java version (from calling `java -version`).
 
 **Example**:
+
 ```puppet
 java{
   default => '8',
@@ -91,7 +94,7 @@ Module build against Puppet 5.
 
 Tested on:
 
-- Ubuntu 16.04 LTS
+* Ubuntu 16.04 LTS
 
 ## Development
 
