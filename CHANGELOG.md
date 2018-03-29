@@ -2,6 +2,12 @@
 
 [< back to readme](README.md)
 
+## 1.2.2 (2018-02-29)
+
+:hammer: formatting changes
+
+**Release Manager**: valsr <mailto:valsr@valsr.com>
+
 ## 1.2.1 (2018-02-19)
 
 :hammer: don't fail fact generation when no java is installed
