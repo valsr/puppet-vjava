@@ -1,0 +1,23 @@
+---
+version:     5
+defaults:
+  datadir:   data
+  data_hash: yaml_data
+
+hierarchy:
+  - name:    "Overrides"
+    paths:
+      - "%{::environment}/%{trusted.certname}.yaml"
+      - "%{::environment}/common.yaml"
+
+  - name:    "Per-node data"
+    path:    "node/%{trusted.certname}.yaml"
+
+  - name:    "Per-OS defaults"
+    paths:
+     - "os/%{facts.os.distro.id}.%{facts.os.distro.release.full}.yaml"
+     - "os/%{facts.os.distro.id}.yaml"
+     - "os/%{facts.os.family}.yaml"
+
+  - name:    "Common data"
+    path:    "common.yaml"

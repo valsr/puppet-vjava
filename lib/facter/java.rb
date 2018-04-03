@@ -27,28 +27,23 @@ Facter.add(:java) do
 
     # default java
     j_default = nil
-    begin
-      cmd = Facter::Util::Resolution.exec("java -version 2>&1")
-      output = cmd ? cmd.split("\n")[0] : ""
-      /openjdk version "(\d\.(?<release>\d)\.\d_(\d+)|(?<release>\d)-internal|(?<release>\d)\.(\d)\.(\d))"/.match(output) do |m|
-        j_default = m[:release]
-      end
-    rescue Facter::Core::Execution::ExecutionFailure
-      warn("Failed executing 'java -version'. Java may not be installed")
-      j_default = nil
+    cmd = Puppet::Util::Execution.execute("java -version 2>&1", {:failonfail => false})
+    output = cmd.exitstatus == 0 ? cmd.split("\n")[0] : ""
+    /openjdk version "(\d\.(?<release>\d)\.\d_(\d+)|(?<release>\d)-internal|(?<release>\d)\.(\d)\.(\d))"/.match(output) do |m|
+      j_default = m[:release]
     end
     java[:default] = j_default
 
     javas = []
     begin
-      javas = Facter::Util::Resolution.exec("update-alternatives --list java").split
+      javas = Puppet::Util::Execution.execute("update-alternatives --list java").split
     rescue
       warn("Failed executing 'update-alternatives --list java'")
     end
 
     javas.each do | version |
       begin
-        output = Facter::Util::Resolution.exec("#{version} -version 2>&1").split("\n")[0]
+        output = Puppet::Util::Execution.execute("#{version} -version 2>&1").split("\n")[0]
         /openjdk version "(\d\.(?<release>\d)\.\d_(\d+)|(?<release>\d)-internal|(?<release>\d)\.(\d)\.(\d))"/.match(output) do |m|
           j_release = m[:release]
           j_home = version
@@ -61,7 +56,7 @@ Facter.add(:java) do
 
           java[j_release] = {:home => j_home, :type => j_type, :default => j_release == j_default}
         end
-      rescue Facter::Core::Execution::ExecutionFailure
+      rescue Puppet::ExecutionFailure
         warn("Failed executing '#{version} -version'")
       end
     end
