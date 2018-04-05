@@ -2,6 +2,14 @@
 
 [< back to readme](README.md)
 
+## 1.3.0 (2018-04-05)
+
+* :exclamation: configured to use hiera module data
+* :star2: sped up fact generation by using Puppet::Util::Execution
+* :hammer: fixed project dependencies
+
+**Release Manager**: valsr <mailto:valsr@valsr.com>
+
 ## 1.2.2 (2018-02-29)
 
 :hammer: formatting changes
