@@ -6,7 +6,7 @@
 #   include vjava
 
 # Copyright 2017 valsr
-class vjava(Optional[Integer] $default_version = undef){
+class vjava(Optional[Integer] $default_version){
   if $default_version {
     include "vjava::java_${default_version}::jre"
     include vjava::config
