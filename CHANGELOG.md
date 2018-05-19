@@ -2,6 +2,12 @@
 
 [< back to readme](README.md)
 
+## 1.3.1 (2018-05-19)
+
+:hammer: fixed default java installation not applying
+
+**Release Manager**: valsr <mailto:valsr@valsr.com>
+
 ## 1.3.0 (2018-04-05)
 
 * :exclamation: configured to use hiera module data
