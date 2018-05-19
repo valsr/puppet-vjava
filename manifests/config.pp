@@ -3,9 +3,9 @@
 # Copyright 2017 valsr
 class vjava::config inherits vjava{
   if $vjava::default_version {
-    $java_alternative = lookup("vjava::${vjava::default_version}::alternative", String, 'first', '')
-    $java_alternative_path = lookup("vjava::${vjava::default_version}::alternative_path", String, 'first', '')
-    $java_home = lookup("vjava::${vjava::default_version}::java_home", String, 'first', '')
+    $java_alternative = lookup("vjava::java_${vjava::default_version}::alternative", String, 'first', '')
+    $java_alternative_path = lookup("vjava::java_${vjava::default_version}::alternative_path", String, 'first', '')
+    $java_home = lookup("vjava::java_${vjava::default_version}::java_home", String, 'first', '')
 
     case $::osfamily {
       'Debian': {

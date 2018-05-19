@@ -1,5 +1,5 @@
 ---
-vjava::default_java_version:     8
+vjava::default_version:          8
 
 vjava::java_8::alternative:      java-1.8.0-openjdk-amd64
 vjava::java_8::alternative_path: /usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java
