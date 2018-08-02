@@ -2,6 +2,12 @@
 
 [< back to readme](README.md)
 
+## 1.3.2 (2018-08-02)
+
+:grey_exclamation: updated module dependencies
+
+**Release Manager**: valsr <mailto:valsr@valsr.com>
+
 ## 1.3.1 (2018-05-19)
 
 :hammer: fixed default java installation not applying
@@ -10,9 +16,9 @@
 
 ## 1.3.0 (2018-04-05)
 
-* :exclamation: configured to use hiera module data
-* :star2: sped up fact generation by using Puppet::Util::Execution
-* :hammer: fixed project dependencies
+- :exclamation: configured to use hiera module data
+- :star2: sped up fact generation by using Puppet::Util::Execution
+- :hammer: fixed project dependencies
 
 **Release Manager**: valsr <mailto:valsr@valsr.com>
 
