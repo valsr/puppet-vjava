@@ -3,20 +3,28 @@
 ## Table of Contents
 
 1.  [Description](#description)
-1.  [Setup - The basics of getting started with vjava](#setup)
-    * [What vjava affects](#what-vjava-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with vjava](#beginning-with-vjava)
-1.  [Usage - Configuration options and additional functionality](#usage)
-1.  [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-1.  [Limitations - OS compatibility, etc.](#limitations)
-1.  [Development - Guide for contributing to the module](#development)
-1.  [Release Notes](#release-notes)
+2.  [Build Status](#build-status)
+3.  [Setup - The basics of getting started with vjava](#setup)
+    - [What vjava affects](#what-vjava-affects)
+    - [Setup requirements](#setup-requirements)
+    - [Beginning with vjava](#beginning-with-vjava)
+4.  [Usage - Configuration options and additional functionality](#usage)
+5.  [Limitations - OS compatibility, etc.](#limitations)
+6.  [Development - Guide for contributing to the module](#development)
+7.  [Release Notes](#release-notes)
 
 ## Description
 
 vjava module installs and configures Java environments. Is addition, it plays nice with other modules allowing
 ad-hoc (runtime) environment installation, configuration.
+
+## Build Status
+
+| Branch      | [Travis-CI](https://travis-ci.org/valsr/puppet-vjava/branches)                      |
+| ----------- | ----------------------------------------------------------------------------------- |
+| stable      | ![latest stable status](https://travis-ci.org/valsr/puppet-vjava.svg?branch=stable) |
+| master      | ![master build status](https://travis-ci.org/valsr/puppet-vjava.svg?branch=master)  |
+| development | N/A                                                                                 |
 
 ## Setup
 
@@ -24,13 +32,15 @@ At most you will need to have vdata installed in order to use hiera data lookups
 
 ### What vjava affects
 
-* JRE/JDK installations
-* JAVA home path/variable
-* Default Java run-time association
+- JRE/JDK installations
+- JAVA home path/variable
+- Default Java run-time association
 
 ### Setup requirements
 
-N/A
+This module depends on **valsr-vcommon** to provide v_ensure_packages. See
+[www.github.com/valsr/puppet-vcommon](www.github.com/valsr/puppet-vcommon) for explanation of what this functions does
+(TL;DR it provides ability to specify package versions to be installed via hiera).
 
 ### Beginning with vjava
 
@@ -82,19 +92,14 @@ java{
 }
 ```
 
-## Reference
-
-> Generate documents first by running **puppet strings generate**
-
-See [doc/index.html](doc/index.html) for reference documentation.
-
 ## Limitations
 
 Module build against Puppet 5.
 
 Tested on:
 
-* Ubuntu 16.04 LTS
+- Ubuntu 18.04 LTS
+- LinuxMint 19
 
 ## Development
 

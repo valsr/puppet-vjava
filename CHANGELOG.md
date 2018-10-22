@@ -2,6 +2,13 @@
 
 [< back to readme](README.md)
 
+## 2.0.0 (2018-10-30)
+
+:exclamation: module complies with pdk standards
+:star2: added unit tests
+
+**Release Manager**: valsr <mailto:valsr@valsr.com>
+
 ## 1.3.2 (2018-08-02)
 
 :grey_exclamation: updated module dependencies
