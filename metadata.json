@@ -34,6 +34,12 @@
       "operatingsystemrelease": [
         "19"
       ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "9"
+      ]
     }
   ],
   "requirements": [
