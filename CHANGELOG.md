@@ -2,6 +2,16 @@
 
 [< back to readme](README.md)
 
+## 2.0.0 (2018-10-27)
+
+:exclamation: module complies with pdk standards
+:exclamation: moved configuration from config class to vjava
+:exclamation: JAVA_HOME is set always when specifying the java_home parameter for vjava (before only when alternative
+was undef)
+:star2: added unit tests
+
+**Release Manager**: valsr <mailto:valsr@valsr.com>
+
 ## 1.3.2 (2018-08-02)
 
 :grey_exclamation: updated module dependencies

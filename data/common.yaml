@@ -1,18 +1,14 @@
 ---
-vjava::default_version:          8
+vjava::default_version:       8
+vjava::alternative:           java-1.8.0-openjdk-amd64
+vjava::alternative_path:      /usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java
 
-vjava::java_8::alternative:      java-1.8.0-openjdk-amd64
-vjava::java_8::alternative_path: /usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java
-vjava::java_8::java_home:        /usr/lib/jvm/java-1.8.0-openjdk-amd64/
-vjava::java_8::jre::package:     openjdk-8-jre
-vjava::java_8::jdk::package:     openjdk-8-jdk
-vjava::java_8::dbg::package:     openjdk-8-dbg
-vjava::java_8::doc::package:     openjdk-8-doc
+vjava::java_8::jre::package:  openjdk-8-jre
+vjava::java_8::jdk::package:  openjdk-8-jdk
+vjava::java_8::dbg::package:  openjdk-8-dbg
+vjava::java_8::doc::package:  openjdk-8-doc
 
-vjava::java_9::alternative:      java-1.9.0-openjdk-amd64
-vjava::java_9::alternative_path: /usr/lib/jvm/java-1.9.0-openjdk-amd64/bin/java
-vjava::java_9::java_home:        /usr/lib/jvm/java-1.9.0-openjdk-amd64/
-vjava::java_9::jre::package:     openjdk-9-jre
-vjava::java_9::jdk::package:     openjdk-9-jdk
-vjava::java_9::dbh::package:     openjdk-9-dbg
-vjava::java_9::doc::package:     openjdk-9-doc
+vjava::java_9::jre::package:  openjdk-9-jre
+vjava::java_9::jdk::package:  openjdk-9-jdk
+vjava::java_9::dbg::package:  openjdk-9-dbg
+vjava::java_9::doc::package:  openjdk-9-doc
