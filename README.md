@@ -44,33 +44,90 @@ This module depends on **valsr-vcommon** to provide v_ensure_packages. See
 
 ### Beginning with vjava
 
-Simplest case is to include the default java class. This will install the default java environment (JRE). The default
-version is controlled by the **vjava::globals default_version** parameter (use hiera for lookups):
-
-```.pp
-include vjava
-```
+Each function/manifest file holds the description on how to use it. You can find more information in the
+[Usage](#usage) section.
 
 ## Usage
 
-If you need/want to install additional JRE/JDK/DOC/Debugging symbols, simply include the desired version:
+`::vjava`
 
-```.pp
-include vjava::9::jre
-include vjava::9::jdk
-include vjava::9::doc
-include vjava::9::dbg
+Simplest case to configure java is to include the vjava class. This will install the default java environment
+(JRE) and other required packages. These defaults can be overriden by overriding the class parameters or by
+specifying them in hiera.
+
+```pp
+# installs defaults
+include vjava
+
+# install Java 9 by default
+class {'vjava':
+  default_version => 9
+}
 ```
 
-Configuring the default version of java is accomplished by setting the vjava::globals default_version parameter to
-the java version. It is recommended to configure this via hiera lookup instead of hard coding it. By default a default
-java 8 is the default version.
+`::vjava::java_{x}::jre`
 
-```.pp
-class{'vjava::globals':
-    default_version => 9
-    }
+Installs the specific (x) Java JRE package. Package name is configurable as well via parameters or the hiera
+lookup (**vjava::java_8::jre::package**).
+
+```pp
+# Default Java 8 debug JRE package
+include vjava::java_8::jre
+
+# custom package
+class{'vjava::java_8::jre':
+  package => 'openjdk-8-jre-headless'
+}
 ```
+
+`::vjava::java_{x}::jdk`
+
+Installs the specific (x) Java JDK package. Package name is configurable as well via parameters or the hiera
+lookup (**vjava::java_8::jdk::package**).
+
+```pp
+# Default Java 8 debug JDK package
+include vjava::java_8::jdk
+
+# custom package
+class{'vjava::java_8::jdk':
+  package => 'openjdk-8-jdk-headless'
+}
+```
+
+`::vjava::java_{x}::dbg`
+
+Installs the specific (x) Java debug package. Package name is configurable as well via parameters or the hiera
+lookup (**vjava::java_8::dbg::package**).
+
+```pp
+# Default Java 8 debug package
+include vjava::java_8::dbg
+
+# custom package
+class{'vjava::java_8::dbg':
+  package => 'openjdk-8-dbg-headless'
+}
+```
+
+`::vjava::java_{x}::doc`
+
+Installs the specific (x) Java documentation package. Package name is configurable as well via parameters or the
+hiera lookup (**vjava::java_8::doc::package**).
+
+```pp
+# Default Java 8 documentation package
+include vjava::java_8::doc
+
+# custom package
+class{'vjava::java_8::doc':
+  package => 'openjdk-8-doc-headless'
+}
+```
+
+### Hiera
+
+Most options can be configured via hiera parameters lookup and defaults are provided under hiera folder.
 
 ### Facts
 
@@ -80,15 +137,15 @@ hash. The 'default' key only holds the current default java version (from callin
 
 **Example**:
 
-```puppet
-java{
+```pp
+java {
   default => '8',
- '8' => {
-   home => '/usr/lib/jvm/java-8-openjdk-amd64',
-   type => 'amd64',
-   default => true
- }
-'9' => ...
+  '8' => {
+    home => '/usr/lib/jvm/java-8-openjdk-amd64',
+    type => 'amd64',
+    default => true
+  }
+  '9' => ...
 }
 ```
 
@@ -100,6 +157,7 @@ Tested on:
 
 - Ubuntu 18.04 LTS
 - LinuxMint 19
+- Debian 9
 
 ## Development
 
