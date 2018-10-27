@@ -20,10 +20,10 @@ ad-hoc (runtime) environment installation, configuration.
 
 ## Build Status
 
-| Branch      | [Travis-CI](https://travis-ci.org/valsr/puppet-vjava/branches)                      |
+| Branch      | [Travis-CI](https://travis-ci.com/valsr/puppet-vjava/branches)                      |
 | ----------- | ----------------------------------------------------------------------------------- |
-| stable      | ![latest stable status](https://travis-ci.org/valsr/puppet-vjava.svg?branch=stable) |
-| master      | ![master build status](https://travis-ci.org/valsr/puppet-vjava.svg?branch=master)  |
+| stable      | ![latest stable status](https://travis-ci.com/valsr/puppet-vjava.svg?branch=stable) |
+| master      | ![master build status](https://travis-ci.com/valsr/puppet-vjava.svg?branch=master)  |
 | development | N/A                                                                                 |
 
 ## Setup
