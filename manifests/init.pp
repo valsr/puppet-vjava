@@ -10,10 +10,10 @@
 
 # Copyright 2017 valsr
 class vjava(
-  Optional[Integer] $default_version,
-  Optional[String] $alternative,
-  Optional[String] $alternative_path,
-  Optional[String] $java_home,
+  Optional[Integer] $default_version = undef,
+  Optional[String] $alternative = undef,
+  Optional[String] $alternative_path = undef,
+  Optional[String] $java_home = undef,
   ){
   if $default_version {
     contain "vjava::java_${default_version}::jre"
