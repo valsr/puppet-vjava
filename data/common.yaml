@@ -2,7 +2,6 @@
 vjava::default_version:       8
 vjava::alternative:           java-1.8.0-openjdk-amd64
 vjava::alternative_path:      /usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java
-vjava::java_home:             /usr/lib/jvm/java-1.8.0-openjdk-amd64/
 
 vjava::java_8::jre::package:  openjdk-8-jre
 vjava::java_8::jdk::package:  openjdk-8-jdk

@@ -1,6 +1,9 @@
 # Main class for Java installation will install the default Java Runtime Environment.
 #
-# @param default Whether to install default java version or not
+# @param default_version Whether to install default java version or not
+# @param alternative name to use when calling update-java-alternative to update default Java version
+# @param alternative_path path to alternative JRE/JDK location
+# @param java_home JAVA_HOME value to set if either alternative or alternative_path is undef
 #
 # @example basic usage
 #   include vjava
@@ -17,7 +20,7 @@ class vjava(
 
     case $facts['os']['family'] {
       'Debian': {
-        if $alternative != undef and $alternative_path != undef {
+        if $alternative and $alternative_path {
           exec { 'update-java-alternatives':
             path    => '/usr/bin:/usr/sbin:/bin:/sbin',
             command => "update-java-alternatives --set ${alternative}",
@@ -25,17 +28,25 @@ class vjava(
             require => Package['java-common']
           }
         }
-        elsif $java_home != undef {
-          file_line { 'java-home-environment':
-            path  => '/etc/environment',
-            line  => "JAVA_HOME=${$java_home}",
-            match => 'JAVA_HOME=',
-          }
-        }
       }
       default: {
         # Do nothing.
       }
+    }
+  }
+
+  case $facts['kernel']{
+    'Linux': {
+      if $java_home {
+        file_line { 'java-home-environment':
+          path  => '/etc/environment',
+          line  => "JAVA_HOME=${$java_home}",
+          match => 'JAVA_HOME=',
+        }
+      }
+    }
+    default: {
+      # do nothing
     }
   }
 

@@ -35,23 +35,30 @@ describe 'vjava' do
               'unless' => 'test /etc/alternatives/java -ef \'/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java\'',
             )
           end
-
-          context 'when alternative is undef' do
-            let(:hiera_config) { 'spec/fixtures/hiera/java.noaltprovided.yaml' }
-            let(:params) do
-              { 'java_home': 'test' }
-            end
-            it do
-              should contain_file_line('java-home-environment')
-                .with(
-                  'path' => '/etc/environment',
-                  'line' => 'JAVA_HOME=test',
-                  'match' => 'JAVA_HOME=',
-                )
-            end
-          end
         end
       end
+    end
+  end
+
+  context 'On Linux' do
+    let(:facts) do
+      {
+        'kernel' => 'Linux',
+        'os' => { # needs this to prevent triggering the update-alt operation
+          'family' => 'unsupported'
+          }
+        }
+    end
+    let(:params) { { 'java_home': 'test' } }
+
+    it 'when provided java_home parameter' do
+      dump_catalog
+      should contain_file_line('java-home-environment')
+        .with(
+          'path' => '/etc/environment',
+          'line' => 'JAVA_HOME=test',
+          'match' => 'JAVA_HOME=',
+        )
     end
   end
 end

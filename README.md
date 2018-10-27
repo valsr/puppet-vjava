@@ -65,6 +65,25 @@ class {'vjava':
 }
 ```
 
+Additionally, if default_version is specified, it will configure the default Java version to use when calling the
+Java executable (uses update-java-alternatives on Debian family OSes).
+
+````pp
+class {'vjava':
+  default_version => 9,
+  alternative => 'java-1.9.0-openjdk-amd64',
+  alternative_path => '/usr/lib/jvm/java-1.9.0-openjdk-amd64/bin/java'
+}
+```
+
+You can also specify to set the JAVA_HOME environment variable as well by supplying the java_home parameter.
+
+```pp
+class {'vjava':
+  java_home => '/usr/lib/jvm/java-1.9.0-openjdk-amd64/'
+}
+```
+
 `::vjava::java_{x}::jre`
 
 Installs the specific (x) Java JRE package. Package name is configurable as well via parameters or the hiera
@@ -78,7 +97,7 @@ include vjava::java_8::jre
 class{'vjava::java_8::jre':
   package => 'openjdk-8-jre-headless'
 }
-```
+````
 
 `::vjava::java_{x}::jdk`
 
