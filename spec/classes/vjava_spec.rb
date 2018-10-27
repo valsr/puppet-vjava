@@ -8,11 +8,9 @@ describe 'vjava' do
       let(:facts) { os_facts }
 
       it { is_expected.to compile.with_all_deps }
-
-      it { should contain_class('vjava') }
-
-      it 'should include default version from hiera' do
-        should contain_class('vjava::java_8::jre')
+      it { is_expected.to contain_class('vjava') }
+      it 'includes default version from hiera' do
+        is_expected.to contain_class('vjava::java_8::jre')
       end
 
       # context 'when configuring alternatives' do
@@ -24,12 +22,11 @@ describe 'vjava' do
       let(:facts) { { 'os' => { 'family': 'Debian' } } }
 
       context 'when setting configurations' do
-
-        it { should contain_package('java-common') }
+        it { is_expected.to contain_package('java-common') }
 
         context 'when default version is specified' do
           it do
-            should contain_exec('update-java-alternatives').with(
+            is_expected.to contain_exec('update-java-alternatives').with(
               'path' => '/usr/bin:/usr/sbin:/bin:/sbin',
               'command' => 'update-java-alternatives --set java-1.8.0-openjdk-amd64',
               'unless' => 'test /etc/alternatives/java -ef \'/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java\'',
@@ -46,14 +43,13 @@ describe 'vjava' do
         'kernel' => 'Linux',
         'os' => { # needs this to prevent triggering the update-alt operation
           'family' => 'unsupported'
-          }
         }
+      }
     end
     let(:params) { { 'java_home': 'test' } }
 
     it 'when provided java_home parameter' do
-      dump_catalog
-      should contain_file_line('java-home-environment')
+      is_expected.to contain_file_line('java-home-environment')
         .with(
           'path' => '/etc/environment',
           'line' => 'JAVA_HOME=test',

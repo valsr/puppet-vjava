@@ -8,7 +8,7 @@ describe 'vjava::java_8::jdk' do
 
       it { is_expected.to compile.with_all_deps }
 
-      it { should contain_package('openjdk-8-jdk') }
+      it { is_expected.to contain_package('openjdk-8-jdk') }
     end
   end
 end

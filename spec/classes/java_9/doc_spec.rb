@@ -8,7 +8,7 @@ describe 'vjava::java_9::doc' do
 
       it { is_expected.to compile.with_all_deps }
 
-      it { should contain_package('openjdk-9-doc') }
+      it { is_expected.to contain_package('openjdk-9-doc') }
     end
   end
 end
