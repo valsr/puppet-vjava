@@ -2,6 +2,12 @@
 
 [< back to readme](README.md)
 
+## 2.0.2 (2018-01-18)
+
+:hammer: updated build system
+
+**Release Manager**: valsr <mailto:valsr@valsr.com>
+
 ## 2.0.1 (2018-01-08)
 
 :star2: added documentation linting
