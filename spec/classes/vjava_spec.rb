@@ -19,7 +19,7 @@ describe 'vjava' do
     end
 
     context 'on Debian family' do
-      let(:facts) { { 'os' => { 'family': 'Debian' } } }
+      let(:facts) { { 'os' => { 'family' => 'Debian' } } }
 
       context 'when setting configurations' do
         it { is_expected.to contain_package('java-common') }
@@ -46,7 +46,7 @@ describe 'vjava' do
         }
       }
     end
-    let(:params) { { 'java_home': 'test' } }
+    let(:params) { { 'java_home' => 'test' } }
 
     it 'when provided java_home parameter' do
       is_expected.to contain_file_line('java-home-environment')
